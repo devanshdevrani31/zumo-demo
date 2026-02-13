@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -77,6 +78,12 @@ const navItems: NavItem[] = [
 
 export default function Sidebar() {
   const pathname = usePathname()
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
 
   const isActive = (href: string): boolean => {
     if (href === '/') {
@@ -85,8 +92,8 @@ export default function Sidebar() {
     return pathname.startsWith(href)
   }
 
-  return (
-    <aside className="h-screen w-64 min-w-[16rem] bg-slate-950 border-r border-slate-800 flex flex-col">
+  const sidebarContent = (
+    <>
       {/* Logo / Brand */}
       <div className="px-6 py-6 border-b border-slate-800">
         <Link href="/" className="flex items-center gap-1">
@@ -141,6 +148,56 @@ export default function Sidebar() {
           <p className="text-[10px] text-slate-600">Isolated VM Sandboxing</p>
         </div>
       </div>
-    </aside>
+    </>
+  )
+
+  return (
+    <>
+      {/* Mobile top bar */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-950 border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-1">
+          <span className="text-xl font-bold tracking-tight text-white">ZUMO</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-0.5" />
+        </Link>
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+        >
+          {mobileOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-40 bg-black/50"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* Mobile drawer */}
+      <aside
+        className={`
+          lg:hidden fixed top-0 left-0 z-50 h-screen w-64 bg-slate-950 border-r border-slate-800
+          flex flex-col transform transition-transform duration-300 ease-in-out
+          ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
+        `}
+      >
+        {sidebarContent}
+      </aside>
+
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:flex h-screen w-64 min-w-[16rem] bg-slate-950 border-r border-slate-800 flex-col">
+        {sidebarContent}
+      </aside>
+    </>
   )
 }
