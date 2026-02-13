@@ -178,30 +178,24 @@ export default function DashboardPage() {
       {/* Hero / Value Proposition */}
       <div className="mb-6 bg-gradient-to-br from-blue-900/30 via-slate-800 to-purple-900/20 rounded-xl border border-slate-700 p-6">
         <h2 className="text-xl font-semibold text-white mb-2">
-          Deploy, govern, and comply &mdash; autonomous AI without the risk
+          The simple, safe, and compliant way to run AI agents
         </h2>
         <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
-          Running agents like <span className="text-blue-400 font-medium">OpenClaw</span> and{' '}
-          <span className="text-blue-400 font-medium">AutoGPT</span> in production is powerful but
-          dangerous &mdash; they need sandboxing, policy enforcement, human oversight, and a clear compliance
-          story. Zumo gives you the infrastructure to deploy autonomous AI employees at scale{' '}
-          <span className="text-white font-medium">and</span> the governance layer to keep them compliant
-          with the <span className="text-blue-400 font-medium">EU AI Act</span>,{' '}
-          <span className="text-blue-400 font-medium">NIST AI RMF</span>,{' '}
-          <span className="text-blue-400 font-medium">ISO/IEC 42001</span>, and{' '}
-          <span className="text-blue-400 font-medium">OECD AI Principles</span>. Tamper-proof audit trails,
-          real-time policy controls, approval workflows, and risk classification &mdash; out of the box.
+          Deploying agents like OpenClaw and AutoGPT is complex, risky, and a compliance nightmare.
+          Zumo takes that away. We simplify deployment, secure it with sandboxed runtimes and policy
+          controls, and keep you compliant with the EU AI Act, NIST AI RMF, ISO/IEC 42001, and
+          OECD AI Principles.
         </p>
         <div className="flex flex-wrap gap-2 mt-4">
           {[
-            'EU AI Act compliant',
-            'NIST AI RMF aligned',
-            'ISO/IEC 42001 ready',
-            'Isolated VM sandboxes',
-            'Real-time policy enforcement',
-            'Hash-chained audit logging',
-            'Human-in-the-loop approvals',
-            'OpenClaw & AutoGPT ready',
+            'EU AI Act',
+            'NIST AI RMF',
+            'ISO/IEC 42001',
+            'OECD AI Principles',
+            'Sandboxed runtimes',
+            'Policy enforcement',
+            'Audit logging',
+            'Human-in-the-loop',
           ].map((tag) => (
             <span
               key={tag}
