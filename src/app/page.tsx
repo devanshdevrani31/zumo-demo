@@ -181,7 +181,7 @@ export default function DashboardPage() {
           The simple, safe, and compliant way to run AI agents
         </h2>
         <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
-          Deploying agents like OpenClaw and AutoGPT is complex, risky, and a compliance nightmare.
+          Deploying AI agents on frameworks like OpenClaw and AutoGPT is complex, risky, and a compliance nightmare.
           Zumo takes that away. We simplify deployment, secure it with sandboxed runtimes and policy
           controls, and keep you compliant with the EU AI Act, NIST AI RMF, ISO/IEC 42001, and
           OECD AI Principles.
