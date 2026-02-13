@@ -178,25 +178,30 @@ export default function DashboardPage() {
       {/* Hero / Value Proposition */}
       <div className="mb-6 bg-gradient-to-br from-blue-900/30 via-slate-800 to-purple-900/20 rounded-xl border border-slate-700 p-6">
         <h2 className="text-xl font-semibold text-white mb-2">
-          Deploy autonomous AI agents without the complexity or risk
+          Deploy, govern, and comply &mdash; autonomous AI without the risk
         </h2>
         <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
-          Running tools like <span className="text-blue-400 font-medium">OpenClaw</span> and{' '}
+          Running agents like <span className="text-blue-400 font-medium">OpenClaw</span> and{' '}
           <span className="text-blue-400 font-medium">AutoGPT</span> in production is powerful but
-          dangerous &mdash; they need isolation, policy enforcement, compliance logging, and human oversight.
-          Zumo gives you the secure infrastructure layer to deploy autonomous AI employees at scale. Get sandboxed
-          runtimes, real-time policy controls, approval workflows, and tamper-proof audit trails out of the box.
-          Connect your tools &mdash; Slack, GitHub, Sentry, CRM &mdash; and let AI collaborate across teams,
-          safely.
+          dangerous &mdash; they need sandboxing, policy enforcement, human oversight, and a clear compliance
+          story. Zumo gives you the infrastructure to deploy autonomous AI employees at scale{' '}
+          <span className="text-white font-medium">and</span> the governance layer to keep them compliant
+          with the <span className="text-blue-400 font-medium">EU AI Act</span>,{' '}
+          <span className="text-blue-400 font-medium">NIST AI RMF</span>,{' '}
+          <span className="text-blue-400 font-medium">ISO/IEC 42001</span>, and{' '}
+          <span className="text-blue-400 font-medium">OECD AI Principles</span>. Tamper-proof audit trails,
+          real-time policy controls, approval workflows, and risk classification &mdash; out of the box.
         </p>
         <div className="flex flex-wrap gap-2 mt-4">
           {[
+            'EU AI Act compliant',
+            'NIST AI RMF aligned',
+            'ISO/IEC 42001 ready',
             'Isolated VM sandboxes',
-            'Multi-model (OpenAI, Anthropic, Gemini)',
             'Real-time policy enforcement',
             'Hash-chained audit logging',
-            'OpenClaw & AutoGPT ready',
             'Human-in-the-loop approvals',
+            'OpenClaw & AutoGPT ready',
           ].map((tag) => (
             <span
               key={tag}
