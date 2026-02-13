@@ -414,6 +414,29 @@ export default function EmployeeDetailPage() {
               </div>
             </div>
 
+            {/* Infrastructure Details */}
+            <div className="bg-gradient-to-r from-slate-700/30 to-slate-800/50 rounded-lg border border-slate-700 p-4">
+              <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-3">Infrastructure</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+                <div>
+                  <p className="text-slate-500">Execution Layer</p>
+                  <p className="text-slate-200 font-medium mt-0.5">{runtimeLabels[employee.runtime] || employee.runtime} v2.4</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Sandbox</p>
+                  <p className="text-slate-200 font-medium mt-0.5">Isolated VM (gVisor)</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Network</p>
+                  <p className="text-slate-200 font-medium mt-0.5">Egress-filtered VPC</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Audit</p>
+                  <p className="text-slate-200 font-medium mt-0.5">SHA-256 hash chain</p>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-sm font-medium text-slate-300 mb-3">Configuration</h3>

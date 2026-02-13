@@ -98,11 +98,13 @@ const AUTONOMY_MODES = [
 ]
 
 const PROVISIONING_STEPS = [
-  'Allocating runtime environment...',
-  'Configuring model provider...',
-  'Setting up tool connections...',
-  'Applying security policies...',
-  'Running initial health check...',
+  'Provisioning isolated VM sandbox (gVisor)...',
+  'Configuring egress-filtered network policy...',
+  'Initializing OpenClaw runtime agent loop...',
+  'Binding model provider API credentials...',
+  'Applying capability policies & rate limits...',
+  'Connecting tool integrations (mTLS)...',
+  'Starting supervisor & heartbeat monitor...',
   'Employee deployed successfully!',
 ]
 

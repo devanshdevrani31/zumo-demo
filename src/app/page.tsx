@@ -175,6 +175,34 @@ export default function DashboardPage() {
         <p className="text-slate-400 mt-1">Overview of your AI employee platform</p>
       </div>
 
+      {/* Infrastructure Banner */}
+      <div className="mb-6 bg-gradient-to-r from-slate-800 via-blue-900/20 to-slate-800 rounded-lg border border-slate-700 p-4">
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-sm text-slate-300">All systems operational</span>
+          </div>
+          <div className="flex items-center gap-4 text-xs text-slate-500">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+              OpenClaw Runtime v2.4
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+              Multi-Model Orchestration
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              SHA-256 Audit Chain
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+              Sandboxed Environments
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {statCards.map((card) => (

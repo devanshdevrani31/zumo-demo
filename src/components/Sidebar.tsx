@@ -131,10 +131,14 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-4 border-t border-slate-800">
+      <div className="px-4 py-4 border-t border-slate-800 space-y-2">
         <div className="flex items-center gap-2 px-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-xs text-slate-500">System Online</span>
+        </div>
+        <div className="px-2 space-y-1">
+          <p className="text-[10px] text-slate-600">Powered by OpenClaw Runtime</p>
+          <p className="text-[10px] text-slate-600">Isolated VM Sandboxing</p>
         </div>
       </div>
     </aside>

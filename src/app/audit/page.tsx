@@ -143,7 +143,7 @@ export default function AuditPage() {
         <div>
           <h1 className="text-3xl font-bold">Audit Log</h1>
           <p className="text-slate-400 mt-1">
-            Tamper-proof record of all employee actions ({logs.length} events)
+            SHA-256 hash-chained tamper-proof record of all employee actions ({logs.length} events)
           </p>
         </div>
         <button
