@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Employee {
+  id            String   @id @default(cuid())
+  name          String
+  role          String
+  runtime       String   @default("openclaw")
+  modelProvider String   @default("anthropic")
+  tools         String   @default("[]") // JSON array
+  autonomyMode  String   @default("supervised")
+  instructions  String   @default("")
+  status        String   @default("running")
+  teamId        String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  team             Team?             @relation(fields: [teamId], references: [id])
+  policies         Policy[]
+  approvalRequests ApprovalRequest[]
+  auditLogs        AuditLog[]
+}
+
+model Policy {
+  id         String @id @default(cuid())
+  employeeId String
+  capability String
+  permission String @default("allow") // allow, deny, approval_required
+  rateLimit  Int?
+
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+}
+
+model ApprovalRequest {
+  id         String   @id @default(cuid())
+  employeeId String
+  action     String
+  details    String   @default("")
+  diff       String   @default("")
+  status     String   @default("pending") // pending, approved, denied
+  createdAt  DateTime @default(now())
+  resolvedAt DateTime?
+
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id           String   @id @default(cuid())
+  employeeId   String?
+  action       String
+  details      String   @default("")
+  hash         String
+  previousHash String
+  timestamp    DateTime @default(now())
+
+  employee Employee? @relation(fields: [employeeId], references: [id], onDelete: SetNull)
+}
+
+model Team {
+  id          String @id @default(cuid())
+  name        String
+  description String @default("")
+
+  employees     Employee[]
+  workflowRules WorkflowRule[]
+}
+
+model WorkflowRule {
+  id      String @id @default(cuid())
+  teamId  String
+  trigger String
+  steps   String @default("[]") // JSON array
+
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
