@@ -4,7 +4,7 @@
   "description": "This repository contains the interactive proof-of-concept for **Zumo**.",
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && prisma migrate deploy && ts-node --compiler-options {\"module\":\"commonjs\"} prisma/seed.ts && next build",
+    "build": "prisma generate && prisma migrate deploy && ts-node --project prisma/tsconfig.seed.json prisma/seed.ts && next build",
     "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint",
