@@ -178,15 +178,16 @@ export default function DashboardPage() {
       {/* Hero / Value Proposition */}
       <div className="mb-6 bg-gradient-to-br from-blue-900/30 via-slate-800 to-purple-900/20 rounded-xl border border-slate-700 p-6">
         <h2 className="text-xl font-semibold text-white mb-2">
-          Deploy AI employees that work like real teammates
+          Deploy autonomous AI agents without the complexity or risk
         </h2>
         <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
-          Zumo lets you create, manage, and orchestrate autonomous AI employees that run 24/7 in
-          isolated sandbox environments. Each employee operates on secure runtimes like{' '}
-          <span className="text-blue-400 font-medium">OpenClaw</span> and{' '}
-          <span className="text-blue-400 font-medium">AutoGPT</span>, with full policy enforcement,
-          approval workflows, and a tamper-proof audit trail. Connect them to your tools &mdash; Slack,
-          GitHub, Sentry, CRM &mdash; and let them collaborate across teams, all under your control.
+          Running tools like <span className="text-blue-400 font-medium">OpenClaw</span> and{' '}
+          <span className="text-blue-400 font-medium">AutoGPT</span> in production is powerful but
+          dangerous &mdash; they need isolation, policy enforcement, compliance logging, and human oversight.
+          Zumo gives you the secure infrastructure layer to deploy autonomous AI employees at scale. Get sandboxed
+          runtimes, real-time policy controls, approval workflows, and tamper-proof audit trails out of the box.
+          Connect your tools &mdash; Slack, GitHub, Sentry, CRM &mdash; and let AI collaborate across teams,
+          safely.
         </p>
         <div className="flex flex-wrap gap-2 mt-4">
           {[
@@ -194,7 +195,7 @@ export default function DashboardPage() {
             'Multi-model (OpenAI, Anthropic, Gemini)',
             'Real-time policy enforcement',
             'Hash-chained audit logging',
-            'OpenClaw & AutoGPT runtimes',
+            'OpenClaw & AutoGPT ready',
             'Human-in-the-loop approvals',
           ].map((tag) => (
             <span
