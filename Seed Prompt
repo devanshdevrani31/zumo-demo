@@ -1,0 +1,236 @@
+You are Claude Code acting as a senior product engineer building a HIGH-FIDELITY PROOF OF CONCEPT platform called “Zumo”.
+
+IMPORTANT:
+This is NOT a production system.
+This is an investor demo simulation.
+
+Do NOT integrate real APIs.
+Do NOT deploy real VMs.
+Do NOT run real OpenClaw.
+
+Simulate everything except:
+- policy enforcement logic
+- audit logging
+- runtime selection system
+
+Goal:
+Create a fully interactive platform that convincingly demonstrates AI employees, orchestration, security, and runtime flexibility.
+
+Everything must LOOK real but can be simulated internally.
+
+------------------------------------------------
+CORE DEMO NARRATIVE
+------------------------------------------------
+
+User creates AI employees that:
+
+run 24/7
+monitor systems
+collaborate
+follow policies
+operate in isolated environments
+have dedicated identities
+can switch runtime engines
+can switch model providers
+
+All shown visually and interactively.
+
+------------------------------------------------
+SIMULATION REQUIREMENTS
+------------------------------------------------
+
+Implement deterministic simulation engine.
+
+Simulated systems:
+
+Slack workspace
+Sentry error stream
+HubSpot CRM
+GitHub repo
+OAuth connection flows
+VM provisioning
+Network isolation
+Cost tracking
+Knowledge retrieval
+
+Each simulation must generate realistic events and logs.
+
+Example:
+“Slack message detected in #support”
+“Sentry error spike detected”
+“VM sandbox provisioned”
+“Agent heartbeat OK”
+
+------------------------------------------------
+AI EMPLOYEE CREATION WIZARD
+------------------------------------------------
+
+Employee name
+Role template
+Runtime layer selector:
+- OpenClaw
+- AutoGPT loop
+- Custom planner
+- External runtime
+
+Model provider selector:
+- OpenAI
+- Anthropic
+- Gemini
+- Local
+
+Tool access selector (mock connectors)
+
+Autonomy mode
+
+Instructions
+
+Team permissions
+
+Security summary
+
+------------------------------------------------
+EMPLOYEE DASHBOARD
+------------------------------------------------
+
+Running status
+Heartbeat indicator
+Simulated activity feed
+Test task runner
+Inbox
+Runtime switcher
+Audit log viewer
+
+------------------------------------------------
+POLICIES PAGE (REAL LOGIC)
+------------------------------------------------
+
+Capability permissions
+Rate limits
+Approval rules
+Inter-agent permissions
+
+------------------------------------------------
+APPROVALS INBOX (REAL)
+------------------------------------------------
+
+Approve / deny actions
+Diff preview
+
+------------------------------------------------
+ORCHESTRATION PAGE
+------------------------------------------------
+
+Teams
+Workflow rules
+Visual execution timeline
+
+Must include demo scenario:
+
+Customer complains on Slack →
+Support agent →
+Developer agent →
+Fix →
+Reply to customer
+
+------------------------------------------------
+RUNTIME PLUGIN SYSTEM (REAL STRUCTURE)
+------------------------------------------------
+
+Runtime plugins exist but simulated.
+
+Switching runtime changes behavior label and logs.
+
+------------------------------------------------
+MODEL PROVIDER SYSTEM (SIMULATED)
+------------------------------------------------
+
+Provider switch changes cost estimate and response style.
+
+------------------------------------------------
+ISOLATED ENVIRONMENT SIMULATION
+------------------------------------------------
+
+When employee created:
+
+show provisioning steps:
+
+allocating sandbox
+configuring network isolation
+deploying runtime
+starting supervisor
+heartbeat active
+
+Purely visual but believable.
+
+------------------------------------------------
+SECURITY DEMONSTRATION
+------------------------------------------------
+
+Policy enforcement must actually work.
+
+Example:
+Agent tries to send email → blocked → approval required.
+
+Audit log must be hash chained.
+
+------------------------------------------------
+EU PRIVACY UI
+------------------------------------------------
+
+Data retention settings
+Export data button
+Delete employee button
+
+No deep compliance logic required.
+
+------------------------------------------------
+TECH STACK
+------------------------------------------------
+
+Next.js
+TypeScript
+Tailwind
+Prisma SQLite
+
+------------------------------------------------
+TESTS
+------------------------------------------------
+
+Policy enforcement
+Approval flow
+Audit chain integrity
+Runtime switching permissions
+
+------------------------------------------------
+FINAL DEMO EXPERIENCE
+------------------------------------------------
+
+User creates AI employees in 2 minutes.
+
+Simulated Slack complaint appears.
+
+Agents collaborate automatically.
+
+Approval requested.
+
+Fix delivered.
+
+Audit log shows everything.
+
+Investor believes system is real.
+
+------------------------------------------------
+BUILD PROCESS
+------------------------------------------------
+
+1 show architecture plan
+2 build simulation engine
+3 build UI
+4 build policy system
+5 build audit system
+6 create demo data
+7 run tests
+8 deliver working interactive platform
+
+Start now.
