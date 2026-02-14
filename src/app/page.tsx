@@ -12,11 +12,11 @@ interface Employee {
 
 interface ActivityEvent {
   id: string
-  employeeId: string
-  employeeName?: string
-  action: string
-  details: string
+  type: string
+  source: string
+  message: string
   timestamp: string
+  metadata?: Record<string, unknown>
 }
 
 interface DashboardStats {
@@ -323,30 +323,46 @@ export default function DashboardPage() {
             </div>
           ) : (
             <div className="space-y-3 max-h-80 overflow-y-auto">
-              {activity.map((event, index) => (
-                <div
-                  key={event.id || index}
-                  className="flex items-start gap-3 p-3 bg-slate-700/50 rounded-lg"
-                >
-                  <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm">
-                      <span className="font-medium text-blue-400">
-                        {event.employeeName || event.employeeId}
-                      </span>{' '}
-                      {event.action}
-                    </p>
-                    {event.details && (
-                      <p className="text-xs text-slate-400 mt-1 truncate">
-                        {event.details}
+              {activity.map((event, index) => {
+                const sourceColors: Record<string, string> = {
+                  slack: 'text-purple-400',
+                  sentry: 'text-red-400',
+                  github: 'text-slate-300',
+                  hubspot: 'text-orange-400',
+                  infrastructure: 'text-blue-400',
+                  'agent-runtime': 'text-emerald-400',
+                  billing: 'text-yellow-400',
+                  confluence: 'text-indigo-400',
+                  notion: 'text-pink-400',
+                  'internal-wiki': 'text-cyan-400',
+                  runbook: 'text-teal-400',
+                  'slack-archive': 'text-purple-300',
+                  'github-docs': 'text-slate-400',
+                }
+                const sourceColor = sourceColors[event.source] || 'text-blue-400'
+
+                return (
+                  <div
+                    key={event.id || index}
+                    className="flex items-start gap-3 p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className={`text-xs font-semibold uppercase tracking-wider ${sourceColor}`}>
+                          {event.source}
+                        </span>
+                        <span className="text-xs text-slate-500">
+                          {formatRelativeTime(event.timestamp)}
+                        </span>
+                      </div>
+                      <p className="text-sm text-slate-300 leading-relaxed">
+                        {event.message}
                       </p>
-                    )}
-                    <p className="text-xs text-slate-500 mt-1">
-                      {formatRelativeTime(event.timestamp)}
-                    </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>
