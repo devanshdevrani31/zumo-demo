@@ -85,6 +85,7 @@ export default function OrchestrationPage() {
   const [demoRunning, setDemoRunning] = useState(false)
   const [demoCompleted, setDemoCompleted] = useState(false)
   const [timeline, setTimeline] = useState<TimelineStep[]>([])
+  const [isTimelineCollapsed, setIsTimelineCollapsed] = useState(false)
 
   useEffect(() => {
     fetchTeams()
@@ -113,6 +114,7 @@ export default function OrchestrationPage() {
     try {
       setDemoRunning(true)
       setDemoCompleted(false)
+      setIsTimelineCollapsed(false)
       // Clear timeline first, then reset to initial state to ensure clean slate
       setTimeline([])
       await new Promise((resolve) => setTimeout(resolve, 50))
@@ -151,6 +153,10 @@ export default function OrchestrationPage() {
       }
 
       setDemoCompleted(true)
+
+      // Auto-collapse after 3 seconds to keep the page organized
+      await new Promise((resolve) => setTimeout(resolve, 3000))
+      setIsTimelineCollapsed(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Demo failed')
     } finally {
@@ -210,20 +216,49 @@ export default function OrchestrationPage() {
       {timeline.length > 0 && (
         <div className="mb-8 bg-slate-800 rounded-lg shadow-lg border border-slate-700 p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold">Demo Scenario: Customer Complaint Resolution</h2>
-            {demoCompleted && (
-              <span className="px-3 py-1 bg-green-900/30 text-green-400 border border-green-800 rounded text-sm font-medium">
-                Completed
-              </span>
-            )}
+            <div className="flex items-center gap-3">
+              <h2 className="text-lg font-semibold">Demo Scenario: Customer Complaint Resolution</h2>
+              {demoCompleted && (
+                <span className="px-3 py-1 bg-green-900/30 text-green-400 border border-green-800 rounded text-sm font-medium">
+                  Completed
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              {demoCompleted && (
+                <button
+                  onClick={() => setIsTimelineCollapsed(!isTimelineCollapsed)}
+                  className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                  title={isTimelineCollapsed ? "Expand" : "Collapse"}
+                >
+                  <svg className={`w-5 h-5 transition-transform ${isTimelineCollapsed ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  </svg>
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  setTimeline([])
+                  setDemoCompleted(false)
+                  setIsTimelineCollapsed(false)
+                }}
+                className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                title="Close"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-700" />
+          {!isTimelineCollapsed && (
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-700" />
 
-            <div className="space-y-6">
-              {timeline.map((step) => (
+              <div className="space-y-6">
+                {timeline.map((step) => (
                 <div key={step.id} className="relative flex gap-4">
                   {/* Step indicator */}
                   <div
@@ -266,9 +301,18 @@ export default function OrchestrationPage() {
                     <p className="text-sm text-slate-400">{step.description}</p>
                   </div>
                 </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          {isTimelineCollapsed && (
+            <div className="text-center py-4">
+              <p className="text-slate-400 text-sm">
+                Demo completed with {timeline.filter(s => s.status === 'completed').length} steps
+              </p>
+            </div>
+          )}
         </div>
       )}
 
