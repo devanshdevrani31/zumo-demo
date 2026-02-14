@@ -178,13 +178,13 @@ export default function DashboardPage() {
       {/* Hero / Value Proposition */}
       <div className="mb-6 bg-gradient-to-br from-blue-900/30 via-slate-800 to-purple-900/20 rounded-xl border border-slate-700 p-6">
         <h2 className="text-xl font-semibold text-white mb-2">
-          The simple, safe, and compliant way to run AI agents
+          Create and manage AI employees on frameworks like OpenClaw and AutoGPT with governance built in
         </h2>
         <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
-          Deploying AI agents on frameworks like OpenClaw and AutoGPT is complex, risky, and a compliance nightmare.
-          Zumo takes that away. We simplify deployment, secure it with sandboxed runtimes and policy
-          controls, and keep you compliant with the EU AI Act, NIST AI RMF, ISO/IEC 42001, and
-          OECD AI Principles.
+          Using frameworks like OpenClaw and AutoGPT directly is risky—uncontrolled agents can cause damage, and meeting
+          regulatory requirements is a compliance nightmare. Zumo makes it safer. Your AI employees work together 24/7 in
+          sandboxed environments with policy controls, human oversight, and full audit trails. Stay compliant with the
+          EU AI Act, NIST AI RMF, ISO/IEC 42001, and OECD AI Principles without the headache.
         </p>
         <div className="flex flex-wrap gap-2 mt-4">
           {[

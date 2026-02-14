@@ -113,7 +113,10 @@ export default function OrchestrationPage() {
     try {
       setDemoRunning(true)
       setDemoCompleted(false)
-      setTimeline(DEMO_TIMELINE.map((s) => ({ ...s, status: 'pending' })))
+      // Clear timeline first, then reset to initial state to ensure clean slate
+      setTimeline([])
+      await new Promise((resolve) => setTimeout(resolve, 50))
+      setTimeline(DEMO_TIMELINE.map((s) => ({ ...s, status: 'pending', timestamp: undefined })))
 
       // Try to call the demo API
       try {
